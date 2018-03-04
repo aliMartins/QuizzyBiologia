@@ -12,6 +12,10 @@
 		162514D420498EDC0046960C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162514D220498EDC0046960C /* Main.storyboard */; };
 		162514D620498EDC0046960C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162514D520498EDC0046960C /* Assets.xcassets */; };
 		162514D920498EDC0046960C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162514D720498EDC0046960C /* LaunchScreen.storyboard */; };
+		162514E52049D4B30046960C /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514E42049D4B30046960C /* QuizViewController.swift */; };
+		162514E72049EB1D0046960C /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514E62049EB1D0046960C /* Questions.swift */; };
+		162514E92049EC720046960C /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514E82049EC720046960C /* QuestionBank.swift */; };
+		29EA859FE18E79C4A288D7CF /* Pods_QuizzyBiologia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A1E78B2B111714D31813B5 /* Pods_QuizzyBiologia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,12 @@
 		162514D520498EDC0046960C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		162514D820498EDC0046960C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		162514DA20498EDC0046960C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		162514E42049D4B30046960C /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		162514E62049EB1D0046960C /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		162514E82049EC720046960C /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
+		19F4BAE95E3D0AA0CF1835E3 /* Pods-QuizzyBiologia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizzyBiologia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuizzyBiologia/Pods-QuizzyBiologia.debug.xcconfig"; sourceTree = "<group>"; };
+		A7A1E78B2B111714D31813B5 /* Pods_QuizzyBiologia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizzyBiologia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80B77FB9677D0CE6B98E3BC /* Pods-QuizzyBiologia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizzyBiologia.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuizzyBiologia/Pods-QuizzyBiologia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29EA859FE18E79C4A288D7CF /* Pods_QuizzyBiologia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +51,8 @@
 			children = (
 				162514CD20498EDC0046960C /* QuizzyBiologia */,
 				162514CC20498EDC0046960C /* Products */,
+				39261340551516B0B4BB592B /* Pods */,
+				F23378C67562AE234B97824A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +67,66 @@
 		162514CD20498EDC0046960C /* QuizzyBiologia */ = {
 			isa = PBXGroup;
 			children = (
+				162514E320498F7B0046960C /* Supporting Files */,
+				162514E220498F5D0046960C /* View */,
+				162514E120498F560046960C /* Model */,
+				162514E020498F4E0046960C /* Controller */,
+			);
+			path = QuizzyBiologia;
+			sourceTree = "<group>";
+		};
+		162514E020498F4E0046960C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				162514E42049D4B30046960C /* QuizViewController.swift */,
 				162514CE20498EDC0046960C /* AppDelegate.swift */,
 				162514D020498EDC0046960C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		162514E120498F560046960C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				162514E62049EB1D0046960C /* Questions.swift */,
+				162514E82049EC720046960C /* QuestionBank.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		162514E220498F5D0046960C /* View */ = {
+			isa = PBXGroup;
+			children = (
 				162514D220498EDC0046960C /* Main.storyboard */,
 				162514D520498EDC0046960C /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		162514E320498F7B0046960C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				162514D720498EDC0046960C /* LaunchScreen.storyboard */,
 				162514DA20498EDC0046960C /* Info.plist */,
 			);
-			path = QuizzyBiologia;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39261340551516B0B4BB592B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19F4BAE95E3D0AA0CF1835E3 /* Pods-QuizzyBiologia.debug.xcconfig */,
+				B80B77FB9677D0CE6B98E3BC /* Pods-QuizzyBiologia.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F23378C67562AE234B97824A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1E78B2B111714D31813B5 /* Pods_QuizzyBiologia.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 162514DD20498EDC0046960C /* Build configuration list for PBXNativeTarget "QuizzyBiologia" */;
 			buildPhases = (
+				001DD1E4F2F2755BDD7C19D0 /* [CP] Check Pods Manifest.lock */,
 				162514C720498EDC0046960C /* Sources */,
 				162514C820498EDC0046960C /* Frameworks */,
 				162514C920498EDC0046960C /* Resources */,
+				CFB27C07F3834490C9E814F2 /* [CP] Embed Pods Frameworks */,
+				2AD84BF469BB2E76595C1B9C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,12 +199,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		001DD1E4F2F2755BDD7C19D0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QuizzyBiologia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AD84BF469BB2E76595C1B9C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuizzyBiologia/Pods-QuizzyBiologia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFB27C07F3834490C9E814F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QuizzyBiologia/Pods-QuizzyBiologia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AMProgressBar/AMProgressBar.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AMProgressBar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QuizzyBiologia/Pods-QuizzyBiologia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		162514C720498EDC0046960C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162514E52049D4B30046960C /* QuizViewController.swift in Sources */,
+				162514E72049EB1D0046960C /* Questions.swift in Sources */,
 				162514D120498EDC0046960C /* ViewController.swift in Sources */,
+				162514E92049EC720046960C /* QuestionBank.swift in Sources */,
 				162514CF20498EDC0046960C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +397,7 @@
 		};
 		162514DE20498EDC0046960C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19F4BAE95E3D0AA0CF1835E3 /* Pods-QuizzyBiologia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +413,7 @@
 		};
 		162514DF20498EDC0046960C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B80B77FB9677D0CE6B98E3BC /* Pods-QuizzyBiologia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
