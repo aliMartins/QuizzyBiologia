@@ -71,8 +71,10 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! QuizViewController
+        if segue.identifier == "goToQuizzScreen" {
+            let destinationVC = segue.destination as! QuizViewController
         destinationVC.difficultyLevel = chosenDifficultyLevel
+        }
     }
     
     //TODO: implementar um i button
