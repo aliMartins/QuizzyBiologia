@@ -19,7 +19,7 @@ class QuizViewController: UIViewController {
     var answeredQuestions : Array = [999,998]
     let defaults = UserDefaults.standard
     var scoreStorage : String?
-    let numberOfQuestions : Int = 10 // number of questions per difficulty
+    let numberOfQuestions : Int = 10 // number of questions per level
     let numberofQuestionsToUnlockLevel = 7
     
     
@@ -90,10 +90,10 @@ class QuizViewController: UIViewController {
         
         checkAnswer()
         
-        // MARK: sorting the question number and verryfying if it has already been answered
+        // MARK: sorting the next question number and verryfying if it has already been answered
         questionNumber = Int(arc4random_uniform(UInt32(numberOfQuestions))) + (difficultyLevel!-1)*numberOfQuestions
-        print (questionNumber)
-        while answeredQuestions.contains(questionNumber) {
+        while answeredQuestions.contains(questionNumber) && score<numberOfQuestions {
+            print ("in the loop")
             questionNumber = Int(arc4random_uniform(UInt32(numberOfQuestions))) + (difficultyLevel!-1)*numberOfQuestions
         }
         
@@ -133,23 +133,22 @@ class QuizViewController: UIViewController {
                      self.defaults.set(3, forKey: "PlayerLevel")
                 }
 
-            } else if score >= numberOfQuestions {
-                let alert = UIAlertController (title: "Parabéns!", message: "Voce ja completou todas as perguntas deste nivel. Deseja Tentar novamente este nivel ou Voltar a tela inicial?", preferredStyle: .actionSheet)
-                let action = UIAlertAction (title: "Tentar Novamente", style: .default, handler: {action in self.resetLevel()})
+            } else if score == numberOfQuestions {
+                let alert = UIAlertController (title: "Parabéns!", message: "Voce ja completou todas as perguntas deste nível. Deseja Joga-lo novamente ou ir para um Próximo?", preferredStyle: .actionSheet)
+                let action = UIAlertAction (title: "Jogar Novamente", style: .default, handler: {action in self.resetLevel()})
                 alert.addAction(action)
-                let action2 = UIAlertAction (title: "Voltar", style: .default, handler: {action in self.navigationController?.popToRootViewController(animated: true)})
+                let action2 = UIAlertAction (title: "Próximo", style: .default, handler: {action in self.navigationController?.popToRootViewController(animated: true)})
                 alert.addAction(action2)
                 present(alert, animated: true,completion: nil)
             } else {
-                let alert = UIAlertController (title: "Correto", message: "Muito bem, Voce ganhou um ponto", preferredStyle: .alert)
+                let alert = UIAlertController (title: "Correto!", message: "Muito bem, Voce ganhou um ponto.", preferredStyle: .alert)
                 let action = UIAlertAction (title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
                 present(alert, animated: true,completion: nil)
             }
             
         } else {
-            // ProgressHUD.showError("Wrong")
-            let alert = UIAlertController (title: "Errou", message: allQuestions.list[questionNumber].questionComment, preferredStyle: .alert)
+            let alert = UIAlertController (title: "Errou!", message: allQuestions.list[questionNumber].questionComment, preferredStyle: .alert)
             let action = UIAlertAction (title: "Ok", style: .default, handler: nil)
             alert.addAction(action)
             present(alert, animated: true,completion: nil)
@@ -182,11 +181,11 @@ class QuizViewController: UIViewController {
         AMProgressBar.config.stripesDelta = 80
         AMProgressBar.config.stripesMotion = .left // .none or .left
         AMProgressBar.config.stripesOrientation = .diagonalRight // .diagonalLeft or .vertical
-        AMProgressBar.config.stripesWidth = 30
+        AMProgressBar.config.stripesWidth = 25
         //AMProgressBar.config.stripesSpacing = 30
         
         AMProgressBar.config.textColor = .white
-        AMProgressBar.config.textFont = UIFont.systemFont(ofSize: 12)
+        AMProgressBar.config.textFont = UIFont.systemFont(ofSize: 14)
         AMProgressBar.config.textPosition = .onBar // AMProgressBarTextPosition
         
     }
@@ -194,7 +193,7 @@ class QuizViewController: UIViewController {
     func resetLevel() {
         score = 0
         
-        // MARK: Remove only the appropriatte itens
+        // MARK: Remove only the itens for the current difficulty level
         var tempRightQuestions : Array = answeredQuestions.filter {$0 < numberOfQuestions*(difficultyLevel! - 1)}
         tempRightQuestions.append( contentsOf: answeredQuestions.filter {$0 > numberOfQuestions*difficultyLevel!})
         

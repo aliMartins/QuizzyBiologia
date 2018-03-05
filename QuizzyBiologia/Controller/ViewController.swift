@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         if playerLevel == 2{
             MidButton.isEnabled = true
         } else if playerLevel == 3 {
+            MidButton.isEnabled = true
             HardButton.isEnabled = true
         }
     }
@@ -59,6 +60,7 @@ class ViewController: UIViewController {
         if playerLevel == 2{
             MidButton.isEnabled = true
         } else if playerLevel == 3 {
+            MidButton.isEnabled = true
             HardButton.isEnabled = true
         }
     }
