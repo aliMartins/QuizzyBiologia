@@ -20,7 +20,7 @@ class QuizViewController: UIViewController {
     let defaults = UserDefaults.standard
     var scoreStorage : String?
     let numberOfQuestions : Int = 10 // number of questions per difficulty
-    let percentageToUnlockLevel = 0.80
+    let numberofQuestionsToUnlockLevel = 7
     
     
     @IBOutlet weak var badgeView: UIImageView!
@@ -122,14 +122,16 @@ class QuizViewController: UIViewController {
             // MARK: Updating Defaults
             self.defaults.set(self.score, forKey: scoreStorage!)
             self.defaults.set(self.answeredQuestions, forKey: "RightQuestions")
-            if score >= Int(percentageToUnlockLevel*Double(numberOfQuestions)) {
-                var newLevel = defaults.integer(forKey: "PlayerLevel")
-                newLevel += 1
-                let alert = UIAlertController (title: "Parabens!", message: "Voce acertou mais de 80% e desbloqueou o nível \(newLevel)", preferredStyle: .alert)
+            if score == numberofQuestionsToUnlockLevel && difficultyLevel! < 3 {
+                let alert = UIAlertController (title: "Parabens!", message: "Voce acertou mais de 70% e desbloqueou o nível \(self.defaults.integer(forKey: "PlayerLevel") + 1)", preferredStyle: .alert)
                 let action = UIAlertAction (title: "Ok", style: .default, handler: nil)
                 alert.addAction(action)
                 present(alert, animated: true,completion: nil)
-                self.defaults.set(newLevel, forKey: "PlayerLevel")
+                if defaults.integer(forKey: "PlayerLevel") == 1 {
+                     self.defaults.set(2, forKey: "PlayerLevel")
+                } else if defaults.integer(forKey: "PlayerLevel") == 2 {
+                     self.defaults.set(3, forKey: "PlayerLevel")
+                }
 
             } else if score >= numberOfQuestions {
                 let alert = UIAlertController (title: "Parabéns!", message: "Voce ja completou todas as perguntas deste nivel. Deseja Tentar novamente este nivel ou Voltar a tela inicial?", preferredStyle: .actionSheet)
@@ -158,7 +160,7 @@ class QuizViewController: UIViewController {
     
     func updateUI() {
         ScoreLabel.text = "Score: \(score)"
-        QuestionNumberLabel.text = "Questão: \(questionNumber+1)/20"
+        QuestionNumberLabel.text = "Questão: \(questionNumber+1)/30"
         let ratioProgress = CGFloat(score)/CGFloat(numberOfQuestions)
         progressBar.setProgress(progress: ratioProgress, animated: true)
      }
