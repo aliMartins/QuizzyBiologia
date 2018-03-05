@@ -36,13 +36,13 @@ class QuizViewController: UIViewController {
                
         // updating the badge
         if difficultyLevel == 1{
-            badgeView.image = UIImage(named: "Fundamental_badge")
+            badgeView.image = UIImage(named: "FinalBadgeLevel1")
             scoreStorage = "MyScoreLevel1"
         } else if difficultyLevel == 2 {
-            badgeView.image = UIImage (named: "Medium_Badge")
+            badgeView.image = UIImage (named: "FinalBadgeLevel2")
             scoreStorage = "MyScoreLevel2"
         } else {
-            badgeView.image = UIImage (named: "Dificil_Badge")
+            badgeView.image = UIImage (named: "FinalBadgeLevel3")
             scoreStorage = "MyScoreLevel3"
         }
         
