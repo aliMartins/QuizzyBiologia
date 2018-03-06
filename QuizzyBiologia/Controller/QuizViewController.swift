@@ -159,7 +159,7 @@ class QuizViewController: UIViewController {
     
     func updateUI() {
         ScoreLabel.text = "Score: \(score)"
-        QuestionNumberLabel.text = "Questão: \(questionNumber+1)/30"
+        QuestionNumberLabel.text = "Questão: \(questionNumber+1)/\(numberOfQuestions*3)"
         let ratioProgress = CGFloat(score)/CGFloat(numberOfQuestions)
         progressBar.setProgress(progress: ratioProgress, animated: true)
      }
